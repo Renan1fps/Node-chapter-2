@@ -9,5 +9,5 @@ app.get("/", (request, response)=>{
 })
 
 app.listen(8000, ()=>{
-  console.log("Server running")
+  console.log("Server running on 8000")
 })
