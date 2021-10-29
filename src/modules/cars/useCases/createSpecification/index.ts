@@ -1,4 +1,4 @@
-import { SpecificationRepository } from "../../repositories/SpecificationRepository";
+import { SpecificationRepository } from "../../repositories/implementations/SpecificationRepository";
 import { CreateSpecificationController } from "./CreateCategoryController";
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 
