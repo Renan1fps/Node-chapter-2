@@ -10,6 +10,10 @@ class CategoriesRepository implements ICategoriesRepository{
   private constructor(){
     this.categories = []
   }
+  delete(name: string): void {
+    const index = this.categories.findIndex(category => category.name === name)
+    this.categories.splice(index,1)
+  }
 
   public static getInstance(): CategoriesRepository{
     if(!CategoriesRepository.INSTANCE){

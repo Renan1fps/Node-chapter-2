@@ -8,6 +8,9 @@ class ImportCategoryController{
 
   handle(request: Request, response: Response):Response{
     const { file } = request
+    if(!file){
+      throw new Error("Missing file")
+    }
     this.importCategoryUseCase.execute(file)
 
     return response.status(201).send()
