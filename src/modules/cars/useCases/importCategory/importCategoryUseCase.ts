@@ -21,6 +21,7 @@ class ImportCategoryUseCase{
         const [name, description] = file
         category.push({ name, description })
     }).on("end", ()=> {
+      fs.promises.unlink(file.path)
       resolve(category)
     }).on("error", (err)=>{
       reject(err)
