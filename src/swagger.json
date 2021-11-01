@@ -1,0 +1,11 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Chapter 2 ignite",
+    "description": "This is an API for training node",
+    "version": "1.0.0",
+    "contact": {
+      "email": "renan.nunes@mblabs.com.br"
+    }
+  }
+}
