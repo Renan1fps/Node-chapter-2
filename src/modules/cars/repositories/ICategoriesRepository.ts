@@ -6,10 +6,10 @@ interface ICreateCategoryDTO{
 }
 
 interface ICategoriesRepository{
-  findByName(name: string): Category | undefined,
-  getAllCategories(): Category[],
-  create({ name, description }:ICreateCategoryDTO ): void
-  delete(name: string): void
+  findByName(name: string): Promise<Category | undefined>,
+  getAllCategories(): Promise<Category[]>,
+  create({ name, description }:ICreateCategoryDTO ): Promise<void>
+  delete(name: string): Promise<void>
 }
 
 export { ICreateCategoryDTO, ICategoriesRepository }

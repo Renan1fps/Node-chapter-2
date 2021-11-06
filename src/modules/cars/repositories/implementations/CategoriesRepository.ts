@@ -1,18 +1,15 @@
+import { getRepository, Repository } from 'typeorm'
 import { Category } from '../../Entities/Category'
 import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository'
 
 class CategoriesRepository implements ICategoriesRepository{
 
-  private categories: Category[]
+  private repository: Repository<Category>
 
   private static INSTANCE : CategoriesRepository
 
   private constructor(){
-    this.categories = []
-  }
-  delete(name: string): void {
-    const index = this.categories.findIndex(category => category.name === name)
-    this.categories.splice(index,1)
+    this.repository = getRepository(Category)
   }
 
   public static getInstance(): CategoriesRepository{
@@ -22,17 +19,22 @@ class CategoriesRepository implements ICategoriesRepository{
     return CategoriesRepository.INSTANCE
   }
 
-  create({name, description}: ICreateCategoryDTO): void{
-    const category = new Category(name, description)
-    this.categories.push(category)
+  async delete(name: string): Promise<void> {
+    const index = await this.repository.delete({ name })
   }
 
-  getAllCategories(): Category[]{
-    return this.categories
+  async create({name, description}: ICreateCategoryDTO): Promise<void>{
+    const category = await this.repository.create({ name, description })
+    this.repository.save(category)
   }
 
-  findByName(name: string): Category | undefined{
-    const category = this.categories.find(category=> category.name === name )
+  async getAllCategories(): Promise<Category[]>{
+    const categories = await this.repository.find()
+    return categories
+  }
+
+  async findByName(name: string): Promise<Category | undefined>{
+    const category = await this.repository.findOne({ name })
     return category
   }
 }
