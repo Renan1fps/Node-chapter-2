@@ -4,7 +4,8 @@
   "host": "localhost",
   "username": "ignite",
   "password": "docker",
-  "database": "chapter2",
+  "database": "chapter2"
+  "entities": "sec/modules/**/entities/.ts",
   "migrations": ["./src/database/migrations/*.ts"],
   "cli":{
     "migrationsDir": "./src/database/migrations"
