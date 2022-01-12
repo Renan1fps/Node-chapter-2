@@ -17,7 +17,9 @@ services:
     container_name: app_ignite
     volumes:
       - .:/app
-    network_mode: host
+    network_mode: host #depreciado
+    links:
+      - database
 
 
 volumes:
