@@ -1,3 +1,3 @@
 import { createConnection } from 'typeorm'
 
-createConnection()
+createConnection() #depreciado agora usa getconection()
