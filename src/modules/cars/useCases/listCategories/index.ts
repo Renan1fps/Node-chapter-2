@@ -8,3 +8,5 @@ const listCategoriesUseCase = new ListCategoriesUseCase(categoryRepository)
 const listCategoriesController = new ListCategoriesController(listCategoriesUseCase)
 
 export { listCategoriesController }
+
+//exportação tem que ser default para conectar no banco
