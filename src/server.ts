@@ -4,6 +4,8 @@ import swaggerUi from 'swagger-ui-express'
 import SwaggerFile from  './swagger.json'
 import './database'
 
+//melhorar e dockerizar
+
 const app = express()
 
 
